@@ -1,0 +1,242 @@
+<!--&lt;!&ndash; Employee Sidebar &ndash;&gt;-->
+
+<!--<aside class="sidebar">-->
+
+<!--    &lt;!&ndash; Logo &ndash;&gt;-->
+<!--    <div class="logo">-->
+<!--        <i class="bi bi-people-fill"></i>-->
+<!--        <span>CrewConnect</span>-->
+<!--    </div>-->
+
+
+<!--    &lt;!&ndash; Navigation &ndash;&gt;-->
+<!--    <nav class="sidebar-nav">-->
+
+<!--        &lt;!&ndash; Dashboard &ndash;&gt;-->
+<!--        <a href="{% url 'employee_dashboard' %}"-->
+<!--           class="nav-item active">-->
+
+<!--            <i class="bi bi-grid-1x2-fill"></i>-->
+
+<!--            <span>Dashboard</span>-->
+
+<!--        </a>-->
+
+
+<!--        &lt;!&ndash; My Profile &ndash;&gt;-->
+<!--        <a href="{% url 'my_profile' %}"-->
+<!--           class="nav-item">-->
+
+<!--            <i class="bi bi-person-circle"></i>-->
+
+<!--            <span>My Profile</span>-->
+
+<!--        </a>-->
+
+
+<!--        &lt;!&ndash; Leave Management &ndash;&gt;-->
+<!--        <div class="nav-section">-->
+
+<!--            <div class="nav-item">-->
+
+<!--                <div class="nav-item-left">-->
+
+<!--                    <i class="bi bi-calendar3"></i>-->
+
+<!--                    <span>Leave Management</span>-->
+
+<!--                </div>-->
+
+<!--                <i class="bi bi-chevron-down"></i>-->
+
+<!--            </div>-->
+
+
+<!--            <div class="submenu">-->
+<!--&lt;!&ndash;                url 'apply_leave' &ndash;&gt;-->
+<!--                <a href="{% url 'apply_leave' %}">-->
+
+<!--                    <i class="bi bi-calendar-plus"></i>-->
+
+<!--                    <span>Apply Leave</span>-->
+
+<!--                </a>-->
+
+<!--                &lt;!&ndash;url 'my_leaves'&ndash;&gt;-->
+<!--                <a href="{% url 'my_leaves' %}">-->
+
+<!--                    <i class="bi bi-calendar-check"></i>-->
+
+<!--                    <span>My Leaves</span>-->
+
+<!--                </a>-->
+
+
+<!--                <a href="{% url 'leave_calendar' %}">-->
+
+<!--                    <i class="bi bi-calendar3"></i>-->
+
+<!--                    <span>Leave Calendar</span>-->
+
+<!--                </a>-->
+
+<!--            </div>-->
+
+<!--        </div>-->
+
+
+<!--        &lt;!&ndash; Payslips  url 'my_payslips'&ndash;&gt;-->
+<!--    {% comment %}-->
+<!--        <a href="#"-->
+<!--           class="nav-item">-->
+
+<!--            <i class="bi bi-cash-stack"></i>-->
+
+<!--            <span>My Payslips</span>-->
+
+<!--        </a>-->
+<!--    {% endcomment %}-->
+<!--    &lt;!&ndash; Logout &ndash;&gt;-->
+
+<!--    <div class="sidebar-footer">-->
+
+<!--        <a href="{% url 'logout' %}"-->
+<!--           class="nav-item logout">-->
+
+<!--            <i class="bi bi-box-arrow-right"></i>-->
+
+<!--            <span>Logout</span>-->
+
+<!--        </a>-->
+
+<!--    </div>-->
+
+<!--</aside>-->
+
+<!-- Employee Sidebar -->
+
+<aside class="sidebar">
+
+    <!-- Logo -->
+    <div class="logo">
+
+        <i class="bi bi-people-fill"></i>
+        <span>CrewConnect</span>
+
+    </div>
+
+
+    <!-- Navigation -->
+    <nav class="sidebar-nav">
+
+
+        <!-- Dashboard -->
+
+        <a href="{% url 'employee_dashboard' %}"
+           class="nav-item {% if request.resolver_match.url_name == 'employee_dashboard' %}active{% endif %}">
+
+            <i class="bi bi-grid-1x2-fill"></i>
+
+            <span>Dashboard</span>
+
+        </a>
+
+
+        <!-- My Profile -->
+
+        <a href="{% url 'my_profile' %}"
+           class="nav-item {% if request.resolver_match.url_name == 'my_profile' %}active{% endif %}">
+
+            <i class="bi bi-person-circle"></i>
+
+            <span>My Profile</span>
+
+        </a>
+
+
+        <!-- ============================
+             LEAVE MANAGEMENT
+        ============================= -->
+
+        <div class="nav-section">
+
+
+            <!-- Leave Management Parent -->
+
+            <div class="nav-item {% if request.resolver_match.url_name == 'apply_leave' or request.resolver_match.url_name == 'my_leaves' or request.resolver_match.url_name == 'leave_calendar' %}active{% endif %}">
+
+                <div class="nav-item-left">
+
+                    <i class="bi bi-calendar3"></i>
+
+                    <span>Leave Management</span>
+
+                </div>
+
+                <i class="bi bi-chevron-down"></i>
+
+            </div>
+
+
+            <div class="submenu">
+
+
+                <!-- Apply Leave -->
+
+                <a href="{% url 'apply_leave' %}"
+                   class="{% if request.resolver_match.url_name == 'apply_leave' %}active{% endif %}">
+
+                    <i class="bi bi-calendar-plus"></i>
+
+                    <span>Apply Leave</span>
+
+                </a>
+
+
+                <!-- My Leaves -->
+
+                <a href="{% url 'my_leaves' %}"
+                   class="{% if request.resolver_match.url_name == 'my_leaves' %}active{% endif %}">
+
+                    <i class="bi bi-calendar-check"></i>
+
+                    <span>My Leaves</span>
+
+                </a>
+
+
+                <!-- Leave Calendar -->
+
+                <a href="{% url 'leave_calendar' %}"
+                   class="{% if request.resolver_match.url_name == 'leave_calendar' %}active{% endif %}">
+
+                    <i class="bi bi-calendar3"></i>
+
+                    <span>Leave Calendar</span>
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+    </nav>
+
+
+    <!-- Logout -->
+
+    <div class="sidebar-footer">
+
+        <a href="{% url 'logout' %}"
+           class="nav-item logout">
+
+            <i class="bi bi-box-arrow-right"></i>
+
+            <span>Logout</span>
+
+        </a>
+
+    </div>
+
+</aside>
